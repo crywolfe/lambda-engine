@@ -427,14 +427,14 @@
                     <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed">A quantitative research team trying to read <strong>market sentiment from social</strong> was stuck hopping between <strong>X (Twitter) and Reddit</strong>, searching mostly on raw tickers that miss most of the conversation — then reconciling exports by hand. <strong>Keyword counts</strong> and overnight batches could not keep up with intraday moves or capture nuance (sarcasm, context, jargon).</p>
+                        <p class="text-sm text-gray-700 leading-relaxed">A quantitative research team trying to read <strong>market sentiment from social</strong> was stuck manually searching <strong>X (Twitter)</strong>, searching mostly on raw tickers that miss most of the conversation — then reconciling exports by hand. <strong>Keyword counts</strong> and overnight batches could not keep up with intraday moves or capture nuance (sarcasm, context, jargon).</p>
                     </div>
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Bespoke AI Solution</h4>
                         <p class="text-sm text-gray-700 mb-3">Signalyze is a FastAPI + React (TypeScript) stack with background workers and Redis—built for continuous ingestion and scoring:</p>
                         <ol class="list-decimal pl-5 space-y-2.5 text-sm text-gray-700">
                             <li><strong>LLM search-term expansion</strong> — Generates platform-aware query phrases per symbol so retrieval goes beyond the ticker alone.</li>
-                            <li><strong>Multi-source fetch</strong> — Pulls recent posts from X and targeted Reddit communities; normalized storage with <strong>Redis</strong> caching and coordination.</li>
+                            <li><strong>X fetch</strong> — Pulls recent posts from X; normalized storage with <strong>Redis</strong> caching and coordination.</li>
                             <li><strong>LLM sentiment + workers</strong> — <strong>ARQ</strong>-driven async processing; confidence-weighted scores; embeddings (e.g. ChromaDB) for contextual chat over the corpus.</li>
                             <li><strong>Live terminal UI</strong> — <strong>Server-Sent Events</strong> for streaming updates, <strong>Plotly</strong> charts, multi-symbol and multi-source views in the browser.</li>
                         </ol>
