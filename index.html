@@ -19,6 +19,15 @@
         
         :root {
             --tw-color-primary: #00d4ff;
+            /* Softer than pure white to reduce harsh contrast with dark sections */
+            --surface-page: #e4eaf2;
+            --surface-nav: #eef2f7;
+            --surface-card: #f6f8fb;
+            --surface-muted: #d8e0eb;
+            --approach-bg: #151d2c;
+            /* Featured project tiles: readable cyan on soft glass (not neon-on-white) */
+            --project-accent-readable: #0a6d8a;
+            --project-accent-readable-deep: #085a70;
         }
         
         .tailwind-ready * {
@@ -36,6 +45,58 @@
         .hero-bg {
             background: linear-gradient(135deg, #0a2540 0%, #112a4a 100%);
         }
+
+        /* Ease the cut from light nav into the hero */
+        .nav-surface {
+            background-color: var(--surface-nav);
+            border-bottom: 1px solid color-mix(in srgb, var(--surface-muted) 55%, transparent);
+        }
+
+        .trust-strip {
+            background: color-mix(in srgb, var(--surface-muted) 42%, var(--surface-page));
+        }
+
+        .projects-section {
+            background: linear-gradient(165deg, #d8e4f0 0%, var(--surface-page) 38%, #e2eaf3 100%);
+        }
+
+        /* Glassy project tiles — frosted panel over section gradient */
+        .project-tile-glass {
+            background: color-mix(in srgb, rgba(255, 255, 255, 0.52) 58%, var(--surface-page));
+            backdrop-filter: blur(14px) saturate(1.12);
+            -webkit-backdrop-filter: blur(14px) saturate(1.12);
+            border: 1px solid color-mix(in srgb, white 78%, var(--surface-muted));
+            box-shadow:
+                0 4px 6px -1px rgba(10, 37, 64, 0.05),
+                0 10px 28px -8px rgba(10, 37, 64, 0.07),
+                inset 0 1px 0 rgba(255, 255, 255, 0.82);
+        }
+
+        .project-tagline {
+            color: var(--project-accent-readable);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+        }
+
+        .project-chevron-glass {
+            background: color-mix(in srgb, rgba(255, 255, 255, 0.55) 65%, transparent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+            color: var(--project-accent-readable-deep);
+        }
+
+        .project-body-divider {
+            border-color: color-mix(in srgb, var(--project-accent-readable) 12%, rgba(255, 255, 255, 0.85));
+        }
+
+        .project-result-glass {
+            background: color-mix(in srgb, rgba(16, 185, 129, 0.14) 50%, rgba(255, 255, 255, 0.38));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid color-mix(in srgb, rgb(16, 185, 129) 22%, rgba(255, 255, 255, 0.6));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+        }
         
         .nav-link {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -51,8 +112,11 @@
         }
         
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
+            transform: translateY(-3px);
+            box-shadow:
+                0 20px 40px -10px rgba(10, 37, 64, 0.1),
+                0 8px 16px -6px rgba(0, 140, 175, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         /* Expandable project rows (<details>) */
@@ -63,7 +127,10 @@
             display: none;
         }
         details.project-expand[open] {
-            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.12);
+            box-shadow:
+                0 22px 44px -12px rgba(0, 130, 165, 0.14),
+                0 4px 12px -4px rgba(10, 37, 64, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.92);
         }
         details.project-expand[open] .project-expand-chevron {
             transform: rotate(180deg);
@@ -92,7 +159,7 @@
 </head>
 <body class="tailwind-ready">
     <!-- NAVIGATION -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <nav class="nav-surface sticky top-0 z-50 shadow-sm shadow-slate-900/5">
         <div class="max-w-screen-2xl mx-auto">
             <div class="px-8 py-5 flex items-center justify-between">
                 <!-- Logo -->
@@ -127,7 +194,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-8 py-6">
+        <div id="mobile-menu" class="hidden md:hidden border-t px-8 py-6" style="background-color: var(--surface-nav); border-color: color-mix(in srgb, var(--surface-muted) 55%, transparent);">
             <div class="flex flex-col gap-y-6 text-lg">
                 <a href="#approach" onclick="toggleMobileMenu()" class="font-medium">Our Approach</a>
                 <a href="#projects" onclick="toggleMobileMenu()" class="font-medium">Projects</a>
@@ -158,7 +225,7 @@
                 </p>
                 
                 <a href="#contact" 
-                   class="cta-button inline-flex items-center gap-x-3 bg-white text-[#0a2540] hover:bg-[#00d4ff] hover:text-white px-10 py-6 rounded-3xl text-xl font-semibold">
+                   class="cta-button inline-flex items-center gap-x-3 bg-[color:var(--surface-nav)] text-[#0a2540] hover:bg-[#00d4ff] hover:text-white px-10 py-6 rounded-3xl text-xl font-semibold">
                     Book a discovery call
                     <svg class="h-7 w-7 md:h-8 md:w-8 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
                 </a>
@@ -182,7 +249,7 @@
     </header>
 
     <!-- OUR APPROACH -->
-    <section id="approach" class="py-20 bg-gray-900 text-white">
+    <section id="approach" class="py-20 text-white" style="background-color: var(--approach-bg);">
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
@@ -229,8 +296,10 @@
         </div>
     </section>
 
+    <div class="h-16 sm:h-20 bg-gradient-to-b from-[#151d2c] to-[#e4eaf2]" aria-hidden="true"></div>
+
     <!-- FEATURED PROJECTS -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="pb-20 pt-2 projects-section">
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-8">
                 <div>
@@ -242,18 +311,18 @@
 
             <div class="max-w-4xl mx-auto flex flex-col gap-4">
                 <!-- Resume Refinery -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">Resume Refinery</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">AI-powered resume reformatter that converts any candidate resume into a polished, Client-branded Word document in under a minute.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">AI-powered resume reformatter that converts any candidate resume into a polished, Client-branded Word document in under a minute.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> ~85–90% time saving · 15 min vs 1.5–2 hrs per resume</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">Client recruiters were manually reformatting every candidate resume they received — copying content from a candidate’s own .docx or PDF into the Client’s branded Word template, matching section structure, fixing formatting, and aligning dates. This repetitive, time-consuming work was done on every single submission, with no consistency guarantee and significant room for transcription errors.</p>
@@ -263,11 +332,11 @@
                         <p class="text-sm text-gray-700 mb-3">Resume Refinery is a full pipeline with three distinct AI stages:</p>
                         <ol class="list-decimal pl-5 space-y-2.5 text-sm text-gray-700">
                             <li><strong>Azure Document Intelligence</strong> extracts raw text and structure from any .docx or .pdf (including scanned documents via OCR), computing word-level confidence scores to flag low-quality inputs.</li>
-                            <li><strong>Two-pass LLM extraction (GPT-4.1)</strong>: Pass 1 faithfully extracts all content verbatim (zero inference — typos preserved). Pass 2 synthesizes practice-area summary, key highlights, and confidence.</li>
+                            <li><strong>Two-pass LLM extraction (GPT-5 models)</strong>: Pass 1 faithfully extracts all content verbatim (zero inference — typos preserved). Pass 2 synthesizes practice-area summary, key highlights, and confidence.</li>
                             <li><strong>Template rendering + validation loop</strong>: Populates the Client-branded Word template with perfect formatting, runs an LLM-as-Judge, and includes an auto-fix loop. Delivered as web app, Teams bot, and CLI on Azure with Entra ID SSO.</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">Time per resume reduced from <span class="line-through opacity-70">1.5–2 hours</span> to <span class="text-emerald-600">15 minutes</span> — an <strong>~85–90% time saving</strong> with higher consistency and zero transcription errors.</p>
                     </div>
@@ -275,18 +344,18 @@
                 </details>
 
                 <!-- Policy Burst -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">Policy Burst</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">Policy Burst automatically transforms multi-form insurance policy PDFs into populated, ready-to-use Word document templates in minutes — eliminating days of manual data entry.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">Policy Burst automatically transforms multi-form insurance policy PDFs into populated, ready-to-use Word document templates in minutes — eliminating days of manual data entry.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> 50+ hours → under 10 min per policy · ≥95% accuracy</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">Analysts at a law firm were manually processing commercial insurance policy PDFs — documents that can be 300 pages containing 40+ individual forms in a single file. The work involved visually scanning pages, manually transcribing red-text values, and starting from scratch on every new policy. A single policy took <strong>50+ hours</strong> with 10–20% error rates.</p>
@@ -303,7 +372,7 @@
                             <li>Processed up to 15 PDFs concurrently on Azure</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">Processing time dropped from <span class="line-through opacity-70">50+ hours</span> to <span class="text-emerald-600">under 10 minutes</span> per policy (300-PDF batch: ~10 hours → ~40 minutes) with ≥95% accuracy.</p>
                     </div>
@@ -311,18 +380,18 @@
                 </details>
 
                 <!-- Invoice Hub -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">Invoice Hub</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">Secure self-service billing portal replacing DOCX/email invoices—time entry, approvals, Excel to accounting, Azure OpenAI on line descriptions.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">Secure self-service billing portal replacing DOCX/email invoices—time entry, approvals, Excel to accounting, Azure OpenAI on line descriptions.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> V1 in active delivery · targeting ≥70% less manual handling</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">External contractors were submitting invoices via <strong>DOCX files and email</strong>. Internal staff had to <strong>re-key data</strong>, chase <strong>exact rate validation</strong> against master tables, and route approvals through inboxes—with <strong>no single audit trail</strong> and heavy friction getting clean, consistent files to accounting.</p>
@@ -337,7 +406,7 @@
                             <li><strong>Azure OpenAI</strong> — “Enhance Description” on line items so service text is clearer and more professional for billing review.</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">V1 in active client delivery. Replacing <span class="line-through opacity-70">manual re-keying and email-based validation</span> with <span class="text-emerald-600">a single portal path</span> from time entry to accounting — targeting ≥70% reduction in manual handling within two months of launch.</p>
                     </div>
@@ -345,18 +414,18 @@
                 </details>
 
                 <!-- AI Maturity Assessment -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">AI Maturity Assessment</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">Public web assessment across six AI maturity dimensions—benchmarked reports, gap analysis, phased action plan via Azure AI.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">Public web assessment across six AI maturity dimensions—benchmarked reports, gap analysis, phased action plan via Azure AI.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> 10–15 min questionnaire · report in 30–90 s</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">Organizations needed a <strong>structured, repeatable</strong> way to understand AI readiness across <strong>people, data, process, technology, governance, and talent</strong>—without commissioning a bespoke consulting study every time—and to turn answers into a <strong>narrative report with benchmarks</strong>, not a static checklist no one acts on.</p>
@@ -371,7 +440,7 @@
                             <li><strong>Microsoft Bookings</strong> — “Schedule consultation” from the report; <strong>Terraform + Container Apps + Front Door</strong> for production hosting.</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">Questionnaire: <span class="text-emerald-600">~10–15 minutes</span>. Full AI maturity report: from <span class="line-through opacity-70">weeks of manual consulting synthesis</span> to <span class="text-emerald-600">30–90 seconds</span>—benchmarks, gaps, and phased plan.</p>
                     </div>
@@ -379,18 +448,18 @@
                 </details>
 
                 <!-- AI Risk Navigator -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">AI Risk Navigator</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">Excel-fed, multi-signal AI risk assessments on a 147-question legal template—tenant, vendor, and client portals.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">Excel-fed, multi-signal AI risk assessments on a 147-question legal template—tenant, vendor, and client portals.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> Architecture validated · phased rollout with client</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">Consulting teams were <strong>juggling spreadsheets and email</strong> to track <strong>dozens to hundreds of AI use cases</strong> per client—slow to score consistently, painful to audit, and nearly impossible to <strong>standardize interviews and reviews</strong> across engagements without rebuilding the wheel each time.</p>
@@ -405,7 +474,7 @@
                             <li><strong>Portals &amp; auth</strong> — <strong>Entra ID</strong> for staff; magic-link JWT for <strong>vendor</strong> and <strong>client</strong> portals (Safe Links–aware reuse window).</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">Architecture validated with the client; phased rollout underway. From <span class="line-through opacity-70">days of spreadsheet coordination</span> to <span class="text-emerald-600">under 60 seconds per use case</span> — auditable, legal-review-ready output from import to triple-scored assessment.</p>
                     </div>
@@ -413,18 +482,18 @@
                 </details>
 
                 <!-- Signalyze -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">Signalyze</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">Multi-source stock sentiment terminal—LLM-generated search terms for X, confidence-weighted sentiment scoring, and real-time dashboards with SSE streaming.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">Multi-source stock sentiment terminal—LLM-generated search terms for X, confidence-weighted sentiment scoring, and real-time dashboards with SSE streaming.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> One pipeline from social firehose to live charts—not overnight CSVs</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">A quantitative research team trying to read <strong>market sentiment from social</strong> was stuck manually searching <strong>X (Twitter)</strong>, searching mostly on raw tickers that miss most of the conversation — then reconciling exports by hand. <strong>Keyword counts</strong> and overnight batches could not keep up with intraday moves or capture nuance (sarcasm, context, jargon).</p>
@@ -439,7 +508,7 @@
                             <li><strong>Live terminal UI</strong> — <strong>Server-Sent Events</strong> for streaming updates, <strong>Plotly</strong> charts, multi-symbol and multi-source views in the browser.</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">From <span class="line-through opacity-70">stale spreadsheets and site-hopping</span> to <span class="text-emerald-600">streaming sentiment dashboards</span> fed by one automated pipeline—cross-platform correlation and drill-down without maintaining manual keyword lists per stock.</p>
                     </div>
@@ -447,18 +516,18 @@
                 </details>
 
                 <!-- Rapid Shield -->
-                <details class="project-card project-expand border border-gray-200 rounded-3xl bg-white transition-all">
+                <details class="project-card project-expand project-tile-glass rounded-3xl transition-all">
                     <summary class="cursor-pointer p-5 md:p-6 flex gap-4 md:gap-6 items-start text-left select-none">
                         <span class="flex-1 min-w-0">
                             <h3 class="text-xl md:text-2xl font-semibold text-[#0a2540] mb-1.5">Rapid Shield</h3>
-                            <p class="text-[#00d4ff] font-medium text-base md:text-lg leading-snug">AI-powered CVE scanner and remediation stack—OSV-backed detection, agentic fix → test → validate → commit loop.</p>
+                            <p class="project-tagline font-medium text-base md:text-lg leading-snug">AI-powered CVE scanner and remediation stack—OSV-backed detection, agentic fix → test → validate → commit loop.</p>
                             <p class="text-xs text-emerald-700 font-medium mt-2.5"><span class="text-gray-500 font-normal">Headline result:</span> End-to-end runs from vulnerability report to patched repo—not weeks of ticket back-and-forth</p>
                         </span>
-                        <span class="project-expand-chevron shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-[#00d4ff] transition-transform duration-300 mt-0.5" aria-hidden="true">
+                        <span class="project-expand-chevron project-chevron-glass shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 mt-0.5" aria-hidden="true">
                             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </span>
                     </summary>
-                    <div class="project-expand-body border-t border-gray-100 px-5 md:px-6 pb-6 pt-2">
+                    <div class="project-expand-body border-t project-body-divider px-5 md:px-6 pb-6 pt-2">
                     <div class="mb-6">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-gray-500 mb-2">The Client’s Original Problem</h4>
                         <p class="text-sm text-gray-700 leading-relaxed">The client's engineering teams face a <strong>flood of CVE and OSV advisories</strong> per repository. Triage is manual, patches are hand-written or copy-pasted, <strong>tests rarely run in the same pass</strong> as the fix, and turning a finding into a <strong>verified git commit or PR</strong> typically spans tools, people, and days—if it happens at all.</p>
@@ -473,7 +542,7 @@
                             <li><strong>Product surface</strong> — <strong>FastAPI</strong> backend, <strong>React</strong> frontend (scan forms, job history, evidence), <strong>JWT</strong> auth; <strong>GitHub service</strong> for PR-style handoff; Playwright E2E for full scan → remediate paths.</li>
                         </ol>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                    <div class="project-result-glass rounded-2xl p-5">
                         <h4 class="uppercase text-[0.65rem] tracking-widest text-emerald-700 mb-1">Results</h4>
                         <p class="text-lg md:text-xl font-semibold text-emerald-700 leading-snug">From <span class="line-through opacity-70">disconnected advisories and manual patches</span> to <span class="text-emerald-600">orchestrated remediation runs</span> with automated tests, validation, and git-backed outcomes—plus structured logging for evaluation and LLM-as-judge review.</p>
                     </div>
@@ -484,7 +553,7 @@
     </section>
 
     <!-- WHY CHOOSE LAMBDA ENGINE -->
-    <section id="why-us" class="py-20 bg-white">
+    <section id="why-us" class="py-20 bg-[color:var(--surface-page)]">
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="text-center mb-12">
                 <span class="px-4 py-2 bg-[#00d4ff] text-white text-sm font-semibold rounded-3xl">Why teams hire us</span>
@@ -493,42 +562,42 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Benefit 1 -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">🔧</div>
                     <h3 class="font-semibold text-xl mb-3">Bespoke solutions with zero vendor lock-in</h3>
                     <p class="text-gray-600">We build custom AI tools that fit <em>your</em> exact workflows — no generic platforms, no ongoing licensing fees, and full ownership of the code and IP.</p>
                 </div>
                 
                 <!-- Benefit 2 -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">⚡</div>
                     <h3 class="font-semibold text-xl mb-3">Dramatic efficiency gains</h3>
                     <p class="text-gray-600">Turn hours (or days) of manual work into minutes. Our clients routinely see 85–90% time reductions on repetitive tasks while eliminating transcription errors.</p>
                 </div>
                 
                 <!-- Benefit 3 -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">💰</div>
                     <h3 class="font-semibold text-xl mb-3">Cost-effective ROI from day one</h3>
                     <p class="text-gray-600">No bloated enterprise software budgets. We deliver targeted AI that pays for itself quickly through measurable productivity and error reduction.</p>
                 </div>
                 
                 <!-- Benefit 4 (NEW – POC to Production) -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">🚀</div>
                     <h3 class="font-semibold text-xl mb-3">POC to Production in weeks</h3>
                     <p class="text-gray-600">We don’t leave you stuck at a proof-of-concept. Every solution is designed and delivered as secure, scalable production software on your infrastructure, ready to ship in single-digit weeks.</p>
                 </div>
                 
                 <!-- Benefit 5 -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">🏢</div>
                     <h3 class="font-semibold text-xl mb-3">Enterprise-grade, yet instantly usable</h3>
                     <p class="text-gray-600">Delivered as a web app, Slack bot, API, MCP server, Microsoft Teams bots, or CLI tools — all secured with your own infrastructure and your existing credentials. No new logins, no training required.</p>
                 </div>
                 
                 <!-- Benefit 6 -->
-                <div class="bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all">
+                <div class="p-8 rounded-3xl transition-all bg-[color:var(--surface-card)] hover:shadow-xl border border-transparent hover:border-gray-300/40 hover:bg-[color:var(--surface-nav)]">
                     <div class="w-12 h-12 bg-[#00d4ff] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl">🧠</div>
                     <h3 class="font-semibold text-xl mb-3">Human-in-the-loop intelligence</h3>
                     <p class="text-gray-600">AI handles the heavy lifting, but we keep you in control with validation loops, confidence scoring, and smart flags so nothing slips through the cracks.</p>
@@ -538,7 +607,7 @@
     </section>
 
     <!-- TRUST STRIP -->
-    <section class="py-14 bg-gray-50 border-t">
+    <section class="trust-strip py-14 border-t border-gray-400/15">
         <div class="max-w-screen-2xl mx-auto px-8 text-center">
             <h3 class="heading-font text-2xl md:text-3xl tracking-tighter text-[#0a2540] mb-3">Security and compliance by design</h3>
             <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-8">Every solution is architected with privacy-first principles and enterprise compliance requirements built in from day one — not bolted on after.</p>
@@ -580,7 +649,7 @@
             
             <div class="mt-12">
                 <a href="https://cal.com/gerry-wolfe/30min" target="_blank" rel="noopener noreferrer"
-                   class="cta-button inline-flex items-center gap-x-4 bg-white text-[#0a2540] hover:bg-[#00d4ff] hover:text-white px-12 py-8 rounded-3xl text-2xl md:text-3xl font-semibold">
+                   class="cta-button inline-flex items-center gap-x-4 bg-[color:var(--surface-nav)] text-[#0a2540] hover:bg-[#00d4ff] hover:text-white px-12 py-8 rounded-3xl text-2xl md:text-3xl font-semibold">
                     Book a discovery call
                     <svg class="h-8 w-8 md:h-10 md:w-10 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
                 </a>
@@ -591,7 +660,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-white py-12 border-t">
+    <footer class="py-12 border-t bg-[color:var(--surface-nav)] border-gray-400/15">
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-y-6">
                 <div class="flex items-center gap-x-3">
