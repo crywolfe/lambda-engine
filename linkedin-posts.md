@@ -2,7 +2,7 @@
 
 Two sites launched March 2026:
 - **gerrywolfe.com** — personal site (Architected Intent, Lambda Engine + The Forge)
-- **lambda.gerrywolfe.com** — Lambda Engine consultancy (custom AI on your cloud)
+- **lambda.gerrywolfe.com** — Lambda Engine, forward-deployed AI engineering (custom AI on your cloud)
 
 ---
 
@@ -19,7 +19,7 @@ Two sides of the same coin:
 
 gerrywolfe.com — my personal site. The philosophy, the background (law + CS), and the north star concept: Architected Intent — deterministic AI for high-stakes environments.
 
-lambda.gerrywolfe.com — Lambda Engine. The consultancy side. Custom AI agents, Slack bots, CLI tools, and pipelines that run on your cloud. No vendor lock-in. Full code ownership.
+lambda.gerrywolfe.com — Lambda Engine. The forward-deployed engineering side. Custom AI agents, Slack bots, CLI tools, and pipelines that run on your cloud. No vendor lock-in. Full code ownership.
 
 Both are live. Both are built by hand.
 
@@ -167,7 +167,7 @@ I call it The Forge.
 
 It lives alongside Lambda Engine on my personal site: https://gerrywolfe.com
 
-The consultancy funds the research. The research makes the consultancy better.
+The client work funds the research. The research makes the client work better.
 
 If you're interested in where AI is going — not just where it is today — that's the place to watch.
 
