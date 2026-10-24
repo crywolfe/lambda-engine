@@ -350,6 +350,30 @@
         </div>
     </header>
 
+    <!-- CREDENTIAL STRIP -->
+    <section class="py-12 bg-gradient-to-b from-[#0a2540] via-[color:var(--surface-muted)] to-[color:var(--surface-page)] scroll-fade">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                <div class="flex items-center gap-x-3 p-4 rounded-2xl bg-white/90 shadow-sm">
+                    <svg class="h-5 w-5 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+                    <span class="text-gray-700"><strong>Currently at OpenAI,</strong> working on solving PII-related flows and inference</span>
+                </div>
+                <div class="flex items-center gap-x-3 p-4 rounded-2xl bg-white/90 shadow-sm">
+                    <svg class="h-5 w-5 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 7a4 4 0 0 0 6 0z"/><path d="M19 7l-3 7a4 4 0 0 0 6 0z"/></svg>
+                    <span class="text-gray-700"><strong>Former attorney,</strong> 15+ years</span>
+                </div>
+                <div class="flex items-center gap-x-3 p-4 rounded-2xl bg-white/90 shadow-sm">
+                    <svg class="h-5 w-5 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>
+                    <span class="text-gray-700"><strong>ODSC</strong> speaker &amp; host</span>
+                </div>
+                <div class="flex items-center gap-x-3 p-4 rounded-2xl bg-white/90 shadow-sm">
+                    <svg class="h-5 w-5 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg>
+                    <span class="text-gray-700"><strong>Best Presentation Award,</strong> ICOAI 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- OUR APPROACH -->
     <section id="approach" class="py-20 text-white scroll-fade" style="background-color: var(--approach-bg);">
         <div class="max-w-screen-2xl mx-auto px-8">
@@ -886,35 +910,56 @@
         </div>
     </section>
 
-    <!-- TRUST STRIP -->
-    <section class="trust-strip py-14 border-t border-gray-400/15 scroll-fade">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center">
-            <h3 class="heading-font text-2xl md:text-3xl tracking-tighter text-[#0a2540] mb-3">Security and compliance by design</h3>
-            <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-8">Every solution is architected with privacy-first principles and enterprise compliance requirements built in from day one — not bolted on after.</p>
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-[#0a2540]">
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>Privacy &amp; security by design</span>
+    <!-- SECURITY PRACTICES -->
+    <section class="py-20 border-t border-gray-400/15 scroll-fade" style="background-color: var(--surface-page);">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="mb-12">
+                <span class="px-4 py-2 bg-[#00d4ff] text-white text-sm font-semibold rounded-3xl">Security practices</span>
+                <h3 class="heading-font text-4xl md:text-5xl tracking-tighter text-[#0a2540] mt-4 mb-3">Built for sensitive data from day one</h3>
+                <p class="text-gray-600 text-lg">How every build is designed, whatever your industry.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">Private, permission-aware deployments</h4>
+                        <p class="text-sm text-gray-600">Agents see only what each user is allowed to see</p>
+                    </div>
                 </div>
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>SOC 2 ready</span>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">Runs in your cloud / VPC</h4>
+                        <p class="text-sm text-gray-600">Your tenant, your network, your existing sign-on</p>
+                    </div>
                 </div>
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>ISO 27001</span>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h4M7 14h10"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">PII redaction and audit trails</h4>
+                        <p class="text-sm text-gray-600">Sensitive fields masked; every action logged</p>
+                    </div>
                 </div>
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>ISO 42001 (AI governance)</span>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">Human-in-the-loop review</h4>
+                        <p class="text-sm text-gray-600">People approve high-risk steps before they run</p>
+                    </div>
                 </div>
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>Penetration tested</span>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">Evals before every release</h4>
+                        <p class="text-sm text-gray-600">Accuracy measured, not assumed</p>
+                    </div>
                 </div>
-                <div class="trust-badge flex items-center gap-x-2 cursor-default">
-                    <svg class="h-4 w-4 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                    <span>Comprehensive test coverage</span>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-[color:var(--surface-card)] border border-transparent hover:border-[#00d4ff]/20 transition-colors">
+                    <svg class="h-6 w-6 shrink-0 text-[#00d4ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                    <div>
+                        <h4 class="font-semibold text-base text-[#0a2540] mb-1">You own the code</h4>
+                        <p class="text-sm text-gray-600">Full source and IP, no vendor lock-in</p>
+                    </div>
                 </div>
             </div>
         </div>
